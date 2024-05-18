@@ -21,7 +21,7 @@ plot(f, abs(ffft_audio_sin_filtrar));
 
 %-------------Filtrado-------------
 
-audio_filtrado = filter(FIR_Filter_6, audio_sin_filtrar);
+audio_filtrado = filter(FILTRO_PRUEBA_FINAL, audio_sin_filtrar);
 
 soundsc(audio_filtrado, fs);
 
