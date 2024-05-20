@@ -21,7 +21,7 @@ function filtrad_FIR()
     
     %-------------Filtrado-------------
     
-    audio_filtrado = filter(, audio_sin_filtrar);
+    %audio_filtrado = filter(, audio_sin_filtrar);
     
     soundsc(audio_filtrado, fs);
     

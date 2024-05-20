@@ -21,7 +21,7 @@ function filtrad_IIR()
     
     %-------------Filtrado-------------
     
-    audio_filtrado = filter(, audio_sin_filtrar);
+    audio_filtrado = filter(IIR_1, audio_sin_filtrar);
     
     soundsc(audio_filtrado, fs);
     
