@@ -1,5 +1,6 @@
-function filtrad_IIR()
-    %------------------Lectura y preparación del archivo-------------
+function grafica_sin_filter()
+
+  %------------------Lectura y preparación del archivo-------------
     [audio_sin_filtrar, fs] = audioread( "Party_ruido_barrido.wav");
     
     valor_muestreo = length(audio_sin_filtrar);
@@ -15,18 +16,12 @@ function filtrad_IIR()
     f = [0:delta_sennal:fs-delta_sennal];
     
     %-------Gráfica de la señal
-    
+    figure;
     plot(f, abs(ffft_audio_sin_filtrar));
-    
-    
-    %-------------Filtrado-------------
-    
-    audio_filtrado = filter(FILTRO_MAT_FI, audio_sin_filtrar);
-    
-    soundsc(audio_filtrado, fs);
-    
-    ffft_audio_filtrado = fft(audio_filtrado);
-    plot(f, abs(ffft_audio_filtrado));
-    
+    title('Señal sin filtrar');
+    xlabel('Frecuencia (Hz)');
+    ylabel('Magnitud');
+
+
 
 end

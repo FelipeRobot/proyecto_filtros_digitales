@@ -7,26 +7,33 @@ function filtrad_IIR()
     duracion = valor_muestreo/fs;
     
     delta_sennal = 1/duracion;
-    
-    %-----Transformada rápdida de Fourier----
-    
-    ffft_audio_sin_filtrar= fft(audio_sin_filtrar);
-    
+   
     f = [0:delta_sennal:fs-delta_sennal];
-    
-    %-------Gráfica de la señal
-    
-    plot(f, abs(ffft_audio_sin_filtrar));
     
     
     %-------------Filtrado-------------
+
+    %-------------Carga del filtro IIR-------------
+
+    % Cargar el objeto del filtro desde el archivo .mat
+    loadedData = load('IIR_1.mat');
+    IIR_1 = loadedData.IIR_1;
     
     audio_filtrado = filter(IIR_1, audio_sin_filtrar);
     
-    soundsc(audio_filtrado, fs);
-    
+    soundsc(audio_filtrado, fs);%reproducción del audio
+
+     %-----Transformada rápdida de Fourier----
+
     ffft_audio_filtrado = fft(audio_filtrado);
+
+    %------Gráfica de la señal-----------
+    figure;
     plot(f, abs(ffft_audio_filtrado));
+    title('Señal filtrada IIR');
+    xlabel('Frecuencia (Hz)');
+    ylabel('Magnitud');
     
+   
 
 end
