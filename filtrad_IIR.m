@@ -16,10 +16,10 @@ function filtrad_IIR()
     %-------------Carga del filtro IIR-------------
 
     % Cargar el objeto del filtro desde el archivo .mat
-    loadedData = load('IIR_1.mat');
-    IIR_1 = loadedData.IIR_1;
+    loadedData = load('IIR_2.mat');
+    IIR_2 = loadedData.IIR_2;
     
-    audio_filtrado = filter(IIR_1, audio_sin_filtrar);
+    audio_filtrado = filter(IIR_2, audio_sin_filtrar);
     
     soundsc(audio_filtrado, fs);%reproducción del audio
 
